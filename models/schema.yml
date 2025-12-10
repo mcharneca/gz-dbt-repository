@@ -1,0 +1,19 @@
+#Dataset: `gz_raw_data`
+#- Tables:
+#  - `raw_gz_sales`
+#  - `raw_gz_product`
+#  - `raw_gz_ship`
+version: 2
+sources:
+   - name: raw
+     database: starlit-lotus-479210-c3
+     schema: gz_raw_data
+     loader: bigquery
+     description: ...
+#     freshness:
+#       warn_after: {count: .., period: ..}
+#       error_after: {count: .., period: ..}
+     tables:
+       - name: raw_gz_sales
+       - name: raw_gz_product
+       - name: raw_gz_ship
