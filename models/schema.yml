@@ -1,0 +1,67 @@
+#Dataset: `gz_raw_data`
+#- Tables:
+#  - `raw_gz_sales`
+#  - `raw_gz_product`
+#  - `raw_gz_ship`
+version: 2
+sources:
+   - name: raw
+     database: starlit-lotus-479210-c3
+     schema: gz_raw_data
+     loader: bigquery
+     description: Raw sales data
+     freshness:
+      warn_after: {count: 12, period: hour}
+  # error_after: {count: 24, period: hour}
+     tables:
+       - name: raw_gz_sales
+         identifier: raw_gz_sales
+         description: sales of Greenweez / we have on row per product_id found in each orders_id
+         loaded_at_field: date_date
+         columns:
+           - name: date_date
+             description: date of purchase
+           - name: orders_id
+             description: ID of order
+             tests:
+              - not_null
+           - name: pdt_id
+             description: ID of products
+             tests:
+              - not_null
+           - name: revenue
+             description: Revenue
+           - name: quantity
+             description: Quantity purchased
+         tests:
+           - unique:
+               column_name: "(orders_id || '-' || pdt_id)"
+       - name: raw_gz_product
+         identifier: raw_gz_product
+         description: Products of greenweez
+         loaded_at_field: date_date
+         columns:
+          - name: products_id
+            description: id of product
+            tests:
+              - not_null
+              - unique 
+          - name: purchase_price
+            description: Purchase price
+       - name: raw_gz_ship
+         identifier: raw_gz_ship
+         description: Shipping information
+         loaded_at_field: date_date
+         columns:
+          - name: orders_id
+            description: Order ID
+            tests:
+            - not_null
+            - unique 
+          - name: shipping_fee
+            description: Fee for shipping
+          - name: logcost
+            description: Logistics cost
+          - name: ship_cost
+            description: Cost of shipping
+
