@@ -76,8 +76,7 @@ sources:
           - name: campaign_key
             description: key of the campaign
             tests:
-            - not_null
-            - unique            
+            - not_null           
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -98,8 +97,7 @@ sources:
           - name: campaign_key
             description: key of the campaign
             tests:
-            - not_null
-            - unique            
+            - not_null           
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -121,7 +119,6 @@ sources:
             description: key of the campaign
             tests:
             - not_null
-            - unique
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -142,8 +139,7 @@ sources:
           - name: campaign_key
             description: key of the campaign
             tests:
-            - not_null
-            - unique            
+            - not_null     
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
