@@ -75,6 +75,9 @@ sources:
             description: payment
           - name: campaign_key
             description: key of the campaign
+            tests:
+            - not_null
+            - unique            
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -94,6 +97,9 @@ sources:
             description: payment
           - name: campaign_key
             description: key of the campaign
+            tests:
+            - not_null
+            - unique            
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -113,6 +119,9 @@ sources:
             description: payment
           - name: campaign_key
             description: key of the campaign
+            tests:
+            - not_null
+            - unique
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
@@ -132,6 +141,9 @@ sources:
             description: payment
           - name: campaign_key
             description: key of the campaign
+            tests:
+            - not_null
+            - unique            
           - name: campgn_name
             description: name of the campaign
           - name: ads_cost
